@@ -5,7 +5,7 @@ const AnswerModel = require('../models/answer.model.server')
 
 module.exports = app => {
   createStudent = (req, res) =>
-    res.json(studentDao.createStudent(req.body))
+    studentDao.createStudent(req.body).then(r => res.send(r));
 
   findAllStudents = (req, res) =>
     studentDao.findAllStudents().then(r => res.send(r));
